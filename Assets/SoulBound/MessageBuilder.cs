@@ -5,13 +5,13 @@ namespace SoulBound
     public class MessageBuilder
     {
         private string eventName;
-        public MessageBuilder WithEventName(string eventName)
+        public MessageBuilder EventName(string eventName)
         {
             this.eventName = eventName;
             return this;
         }
         private Dictionary<string, object> eventProperties;
-        public MessageBuilder WithEventProperties(Dictionary<string, object> eventProperties)
+        public MessageBuilder EventProperties(Dictionary<string, object> eventProperties)
         {
             if (eventProperties == null)
             {
@@ -35,7 +35,7 @@ namespace SoulBound
             }
             return this;
         }
-        public MessageBuilder WithEventProperty(string key, object value)
+        public MessageBuilder EventProperty(string key, object value)
         {
             if (this.eventProperties == null)
             {
@@ -48,7 +48,7 @@ namespace SoulBound
             return this;
         }
         private Dictionary<string, object> userProperties;
-        public MessageBuilder WithUserProperties(Dictionary<string, object> userProperties)
+        public MessageBuilder UserProperties(Dictionary<string, object> userProperties)
         {
             if (userProperties == null)
             {
@@ -72,7 +72,7 @@ namespace SoulBound
             }
             return this;
         }
-        public MessageBuilder WithUserProperty(string key, object value)
+        public MessageBuilder UserProperty(string key, object value)
         {
             if (this.userProperties == null)
             {

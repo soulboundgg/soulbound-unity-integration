@@ -19,33 +19,29 @@ public class Program : MonoBehaviour
         SoulBound.Client soulClient = SoulBound.Client.GetInstance("GAME_TOKEN", configBuilder.Build());
 
 
-        Message identifyMessage = new MessageBuilder().Build();
         Traits traits = new Traits();
-
-        traits.PutEmail("alex@example.com");
-        traits.PutAge("40");
-
-        traits.Put("location", "New Orleans");
+        traits.PutWalletAddress("n4GC2FbfWPMR49zHzi6xzLCYTTfdCTzRLS");
+        traits.PutPseudonym("haxor1");
         traits.Put("gender", "Male");
-        traits.Put("consent", "Granted");
+        
         soulClient.Identify("some_user_id", traits, identifyMessage);
 
 
         //send messages
         Dictionary<string, object> eventProperties = new Dictionary<string, object>();
-        eventProperties.Add("test_key_1", "test_value_1");
-        eventProperties.Add("test_key_2", "test_value_2");
+        eventProperties.Add("quest_level", "3");
+        eventProperties.Add("quest_completed", "true");
 
         // create user properties
         Dictionary<string, object> userProperties = new Dictionary<string, object>();
-        userProperties.Add("test_u_key_1", "test_u_value_1");
-        userProperties.Add("test_u_key_2", "test_u_value_2");
+        userProperties.Add("user_time_spent", "10");
+        userProperties.Add("trial_nos", "3");
 
         // create message to track
         MessageBuilder builder = new MessageBuilder();
-        builder.WithEventName("test_event_name");
-        builder.WithEventProperties(eventProperties);
-        builder.WithUserProperties(userProperties);
+        builder.EventName("test_event_name");
+        builder.EventProperties(eventProperties);
+        builder.UserProperties(userProperties);
 
         soulClient.Track(builder.Build());
     }
@@ -59,32 +55,18 @@ public class Program : MonoBehaviour
 
         if (count % 10000 == 0)
         {
-            Dictionary<string, object> externalId1 = new Dictionary<string, object>();
-            externalId1.Add("id", "some_external_id_1");
-            externalId1.Add("type", "brazeExternalId");
-
-            Dictionary<string, object> externalId2 = new Dictionary<string, object>();
-            externalId2.Add("id", "some_external_id_2");
-            externalId2.Add("type", "brazeExternalId2");
-
-            List<Dictionary<string, object>> externalIds = new List<Dictionary<string, object>>();
-            externalIds.Add(externalId1);
-            externalIds.Add(externalId2);
-
-            Dictionary<string, object> integrations = new Dictionary<string, object>();
-            integrations.Add("All", true);
-            integrations.Add("Amplitude", true);
-
-            Dictionary<string, object> options = new Dictionary<string, object>();
-            options.Add("integrations", integrations);
-            options.Add("externalIds", externalIds);
-
+            
+            Dictionary<string, object> eventProperties = new Dictionary<string, object>();
+            eventProperties.Add("quest_level", "5");
+            eventProperties.Add("quest_completed", "in_progress");
+         
             // create message to track
             MessageBuilder builder = new MessageBuilder();
-            builder.WithEventName("update_event");
-            builder.WithEventProperty("foo", "bar");
-            Message msg = builder.Build();
-            msg.options = options;
+            builder.EventName("update_event_name");
+            builder.EventProperties(eventProperties);
+            builder.UserProperties(userProperties);
+
+            soulClient.Track(builder.Build());
             soulClient.Track(msg);
         }
 
