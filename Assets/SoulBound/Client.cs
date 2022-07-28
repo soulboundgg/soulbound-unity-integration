@@ -6,7 +6,7 @@ using MiniJSON;
 
 namespace SoulBound
 {
-    public class Client : MonoBehaviour
+    public class Client 
     {
         private static Client _instance;
         private static IntegrationManager _integrationManager;
@@ -109,9 +109,8 @@ namespace SoulBound
             }
         }
 
-        public void Identify(string userId, Traits traits, Message message)
+        public void Identify(string userId, Traits traits)
         {
-            Logger.LogDebug("Identify Event: " + message.eventName);
             Cache.SetUserId(userId);
             if (traits.getId() == null)
             {

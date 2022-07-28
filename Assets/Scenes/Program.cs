@@ -24,7 +24,7 @@ public class Program : MonoBehaviour
         traits.PutPseudonym("haxor1");
         traits.Put("gender", "Male");
         
-        soulClient.Identify("some_user_id", traits, identifyMessage);
+        soulClient.Identify("some_user_id", traits);
 
 
         //send messages
@@ -52,7 +52,9 @@ public class Program : MonoBehaviour
     void Update()
     {
         count += 1;
-
+        ConfigBuilder configBuilder = new ConfigBuilder();
+        SoulBound.Client soulClient = SoulBound.Client.GetInstance("GAME_TOKEN", configBuilder.Build());
+        
         if (count % 10000 == 0)
         {
             
@@ -64,10 +66,8 @@ public class Program : MonoBehaviour
             MessageBuilder builder = new MessageBuilder();
             builder.EventName("update_event_name");
             builder.EventProperties(eventProperties);
-            builder.UserProperties(userProperties);
 
             soulClient.Track(builder.Build());
-            soulClient.Track(msg);
         }
 
     }

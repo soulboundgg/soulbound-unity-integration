@@ -32,7 +32,9 @@ namespace SoulBound
             string name,
             string phone,
             string title,
-            string username
+            string username,
+            string walletaddress,
+            string pseudonym
         )
         {
             traitsDict = new Dictionary<string, object>();
@@ -51,6 +53,8 @@ namespace SoulBound
             this.traitsDict.Add("phone", phone);
             this.traitsDict.Add("title", title);
             this.traitsDict.Add("username", username);
+            this.traitsDict.Add("walletaddress", walletaddress);
+            this.traitsDict.Add("pseudonym", pseudonym);
         }
 
         public string getId()
@@ -84,7 +88,16 @@ namespace SoulBound
             this.traitsDict.Add("birthday", birthday);
             return this;
         }
-
+        public Traits PutWalletAddress(string walletaddress)
+        {
+            this.traitsDict.Add("walletaddress", walletaddress);
+            return this;
+        }
+        public Traits PutPseudonym(string pseudonym)
+        {
+            this.traitsDict.Add("pseudonym", pseudonym);
+            return this;
+        }
         public Traits PutCompany(Company company)
         {
             this.traitsDict.Add("company", company);
