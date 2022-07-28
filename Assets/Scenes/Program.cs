@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Program : MonoBehaviour
 {
-    Client soulClient;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class Program : MonoBehaviour
 
 
         // Please ensure you create a game in your Soulbound account dashboard and get its TOKEN.
-        //Create client.
+        
         SoulBound.Client soulClient = SoulBound.Client.GetInstance("GAME_TOKEN", configBuilder.Build());
 
 
@@ -45,35 +45,6 @@ public class Program : MonoBehaviour
 
         soulClient.Track(builder.Build());
     }
-    int count = 0;
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        count += 1;
-        ConfigBuilder configBuilder = new ConfigBuilder();
-        SoulBound.Client soulClient = SoulBound.Client.GetInstance("GAME_TOKEN", configBuilder.Build());
-        
-        if (count % 10000 == 0)
-        {
-            
-            Dictionary<string, object> eventProperties = new Dictionary<string, object>();
-            eventProperties.Add("quest_level", "5");
-            eventProperties.Add("quest_completed", "in_progress");
-         
-            // create message to track
-            MessageBuilder builder = new MessageBuilder();
-            builder.EventName("update_event_name");
-            builder.EventProperties(eventProperties);
-
-            soulClient.Track(builder.Build());
-        }
-
-    }
-
-
-
 }
 
 
