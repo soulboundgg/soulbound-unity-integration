@@ -14,12 +14,10 @@ namespace SoulBound
 {
     class IntegrationManager
     {
-        private string _serverConfigJson = null;
         private string _writeKey = null;
         private Config _config = null;
         private object _lockingObj = new object();
-        private string _persistedUserId = null;
-        private Traits _persistedTraits = null;
+        
 
         public IntegrationManager(string writeKey, Config config)
         {
@@ -78,7 +76,10 @@ public void SendPostData(string message)
         public void MakeIntegrationDump(Message message)
         {
             Logger.LogDebug("Sending message " + message.eventName);
-            SendPostData(message.convertMessageToJson());
+            
+            var t = new Thread(() => SendPostData(message.convertMessageToJson()));
+            t.Start();
+            
         }
 
         public void MakeIntegrationIdentify(Traits traits)
@@ -86,13 +87,10 @@ public void SendPostData(string message)
 
             Logger.LogDebug("Identify " + traits.getId());
             string traitsJson = Json.Serialize(traits.traitsDict);
+            var t = new Thread(() => SendPostData(traitsJson));
+            t.Start();
 
-            SendPostData(traitsJson);
-
-
+            
         }
-
-
-
     }
 }
