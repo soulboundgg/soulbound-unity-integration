@@ -125,11 +125,5 @@ namespace SoulBound
 
         }
 
-
-        public void setAnonymousId(string _anonymousId)
-        {
-            Logger.LogDebug("SetAnonymousId: " + _anonymousId);
-        }
-
     }
 }

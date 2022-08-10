@@ -9,12 +9,15 @@ namespace SoulBound
         public Traits()
         {
             traitsDict = new Dictionary<string, object>();
+            traitsDict.Add("anonymousId", Cache.GetAnonymousId());
         }
 
         Traits(string anonymousId)
         {
             traitsDict = new Dictionary<string, object>();
             traitsDict.Add("anonymousId", anonymousId);
+            Cache.SetAnonymousId(anonymousId);
+                    
         }
 
         public Traits(
