@@ -5,7 +5,7 @@ namespace SoulBound
         // how often config should be fetched from the server (in hours) (2 hrs by default)
         public static int CONFIG_REFRESH_INTERVAL = 2;
         // default base url or backend-server
-        public static string DATA_PLANE_URL = "http://34.67.87.139/data";
+        public static string DATA_PLANE_URL = "http://sdkdata.soulbound.gg/data";
         // default flush queue size for the events to be flushed to server
         public static int FLUSH_QUEUE_SIZE = 30;
         // default timeout for event flush

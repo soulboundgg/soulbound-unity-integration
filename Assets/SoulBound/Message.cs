@@ -9,6 +9,8 @@ namespace SoulBound
         public Dictionary<string, object> eventProperties;
         public Dictionary<string, object> userProperties;
         public Dictionary<string, object> options;
+        public Dictionary<string, object> userIds;
+
 
         public string getEventPropertiesJson()
         {
@@ -34,9 +36,14 @@ namespace SoulBound
         public string convertMessageToJson()
         {
             Dictionary<string, object> messageDict = new Dictionary<string, object>();
+            userIds = new Dictionary<string, object>();
+            userIds.Add("AnonymousId", Cache.GetAnonymousId());
+            userIds.Add("UserId", Cache.GetUserId());
+
             messageDict.Add("UserProperties", getUserPropertiesJson());
             messageDict.Add("EventProperties", getEventPropertiesJson());
             messageDict.Add("Options", getOptionsJson());
+            messageDict.Add("Ids", userIds);
             return Json.Serialize(messageDict);
         }
     }
