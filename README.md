@@ -13,7 +13,7 @@ To configure the Soulbound Unity SDK, you will need the following:
 # **Integrating the Soulbound sdk with the game**
 
 - Download Soulbound sdk-unity from our GitHub repository.
-- From the downloaded sdk, Import the Soulbound directory to your project. From the Assets menu, go to Import New Asset and select  
+- From the downloaded sdk, Import the Soulbound directory to your project. From the Assets menu, go to Import New Asset and select Soulbound directory under Assets in the sdk code. 
 
 # **Initialising the client**
 
