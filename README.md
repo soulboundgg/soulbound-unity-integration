@@ -6,13 +6,18 @@ After integrating this SDK with your game, you will be able to track your game e
 
 To configure the Soulbound Unity SDK, you will need the following:
 
-- You will need to set up a **Soulbound [](https://app.rudderstack.com/)account** on Soulbound Dashboard**.**
-- Once signed up, **set up a Unity source app in the dashboard**. You should then see a **token** for this source.
-- Finally, you will need to **integrate the Soulbound Unity SDK**.
+- You will need to set up aÂ **Soulbound account** on Soulbound Dashboard [https://mainframe.soulbound.gg] **.**
+- Once signed up, **create a game**. You should then see aÂ **token**Â for this game.
+- Finally, you will need to **integrate theÂ Soulbound Unity SDK**.
+
+# **Integrating the Soulbound sdk with the game**
+
+- Download Soulbound sdk-unity from our GitHub repository.
+- From the downloaded sdk, Import the Soulbound directory to your project. From the Assets menu, go to Import New Asset and select  
 
 # **Initialising the client**
 
-- Add the following code in the `Awake` method of your main `GameObject` Script:
+- Add the following code in theÂ `Awake`Â method of your mainÂ `GameObject`Â Script:
 
 ```csharp
 ConfigBuilder configBuilder = new ConfigBuilder()
@@ -23,9 +28,9 @@ Client client = Client.GetInstance(TOKEN, configBuilder.Build());
 
 The Unity SDK provides an `Identify` method for identifying the user. This helps adding the attributes of the user and then in tracking the user across the application. Once the SDK identifies the user, it persists and passes the user information to the subsequent calls.
 
-The SDK also has some in-built APIs for building the `Identify` object like `PutWalletAddress`, `PutPseudonym` etc. These APIs can be used to set the values of the standard identifications items by directly passing them as parameters.
+The SDK also has some in-built APIs for building theÂ `Identify`Â object likeÂ `PutWalletAddress`, `PutPseudonym` etc. These APIs can be used to set the values of the standard identifications items by directly passing them as parameters.
 
-For the custom identification attributes which we don’t support using our pre-defined APIs, the `Put()` method could be used to pass a key-value pair of the attribute, as shown in the sample `Identify` event below:
+For the custom identification attributes which we donâ€™t support using our pre-defined APIs, theÂ `Put()`Â method could be used to pass a key-value pair of the attribute, as shown in the sampleÂ `Identify`Â event below:
 
 ```csharp
 Traits traits = new Traits();
@@ -39,9 +44,9 @@ If user is not identified in the app then we assign a random user id to the user
 
 # **Track**
 
-You can record the users' in-game activity through the `track` method. Every user action is called an **event**.
+You can record the users' in-game activity through theÂ `track`Â method. Every user action is called anÂ **event**.
 
-A sample `track` event is as shown:
+A sampleÂ `track`Â event is as shown:
 
 ```csharp
 
