@@ -40,7 +40,7 @@ public void SendPostData(string message)
                     var authKeyBytes = System.Text.Encoding.UTF8.GetBytes(_writeKey + ":");
                     var messageBytes = System.Text.Encoding.UTF8.GetBytes(message);
                     string authHeader = Convert.ToBase64String(authKeyBytes);
-                    postrequest.Headers.Add("Authorization", "Basic " + authHeader);
+                    postrequest.Headers.Add("Authorization", "Bearer " + _writeKey);
 
                     postrequest.Method = "POST";
                     postrequest.ContentType="application/json";
