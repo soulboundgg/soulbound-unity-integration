@@ -1,6 +1,6 @@
 # Soulbound Unity Integration Guide
 
-After integrating this SDK with your game, you will be able to track your game events data and in future send to third parties through Soulbound.
+After integrating this SDK with your game, you will be able to track your game events data. 
 
 # **SDK setup requirements**
 
@@ -12,8 +12,8 @@ To configure the Soulbound Unity SDK, you will need the following:
 
 # **Integrating the Soulbound sdk with the game**
 
-- Download Soulbound sdk-unity from our GitHub repository.
-- From the downloaded sdk, Import the Soulbound directory to your project. From the Assets menu, go to Import New Asset and select Soulbound directory under Assets in the sdk code. 
+- Download SDK/soulbound-unity-sdk.unitypackage from soulbound-unity-integration public GitHub repository.
+- Import the sdk package file to your project. From the Assets menu, go to Import Package and then Custom Package and select the downloaded unitypackage file. 
 
 # **Initialising the client**
 
