@@ -1,6 +1,10 @@
 # Soulbound Unity Integration Guide
 
+By copying, cloning or downloading the contents of this repository partially or fully, you agree to the [license agreement](Soulbound_SDK_Software_License_Agreement.pdf). 
+
+
 After integrating this SDK with your game, you will be able to track your game events data. 
+
 
 # **SDK setup requirements**
 
