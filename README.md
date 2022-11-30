@@ -6,7 +6,7 @@ By copying, cloning or downloading the contents of this repository partially or 
 After integrating this SDK with your game, you will be able to track your game events data. 
 
 
-# **SDK setup requirements**
+## **SDK setup requirements**
 
 To configure the Soulbound Unity SDK, you will need the following:
 
@@ -14,12 +14,12 @@ To configure the Soulbound Unity SDK, you will need the following:
 - Once signed up, **create a game**. You should then see a **token** for this game.
 - Finally, you will need to **integrate the Soulbound Unity SDK**.
 
-# **Integrating the Soulbound sdk with the game**
+## **Integrating the Soulbound sdk with the game**
 
 - Download SDK/soulbound-unity-sdk.unitypackage from soulbound-unity-integration public GitHub repository.
 - Import the sdk package file to your project. From the Assets menu, go to Import Package and then Custom Package and select the downloaded unitypackage file. 
 
-# **Initialising the client**
+## **Initialising the client**
 
 - Add the following code in the `Awake` method of your main `GameObject` Script:
 
@@ -28,7 +28,7 @@ ConfigBuilder configBuilder = new ConfigBuilder()
 Client client = Client.GetInstance(TOKEN, configBuilder.Build());
 ```
 
-# **Identify**
+## **Identify**
 
 The Unity SDK provides an `Identify` method for identifying the user. This helps adding the attributes of the user and then in tracking the user across the application. Once the SDK identifies the user, it persists and passes the user information to the subsequent calls.
 
@@ -72,3 +72,44 @@ builder.UserProperties(userProperties);
 
 Client.Track(builder.Build());
 ```
+# Soulbound API Integration Guide
+
+## **SDK setup requirements**
+
+To integrate with Soulbound API, you will need the following:
+
+- You will need to set up a **Soulbound account** on Soulbound Dashboard [https://mainframe.soulbound.gg] **.**
+- Once signed up, **create a game**. You should then see a **token** for this game.
+- Finally, you will need to **integrate with the Soulbound API**.
+
+## **Integrating with the Soulbound API**
+
+```
+GET /events HTTP/1.1
+Authorization: Bearer e9e716a4-9b54-4e88-a992-0491aa7a5e6b
+Content-Length: 271
+Content-Type: application/json
+Host: sdkdata.soulbound.gg
+User-Agent: HTTPie
+
+{
+  "userid": "alok123",
+  "email": "someone@one.com",
+  "crypto-address": "0x12345656",
+  "params": [
+    {
+      "name": "Stage",
+      "value": "1"
+    },
+    {
+      "name": "Zone",
+      "value": "1"
+    },
+    {
+      "name": "World",
+      "value": "1"
+    }
+  ]
+}
+```
+The data must be sent using the format given above. Specifically, the format of the params must match the quest criteria. For example this format is equiavalent to the `Complete Stage 1 Zone 1 World 1` quest. This quest must be created using similar conditions in mainframe.soulbound.gg
