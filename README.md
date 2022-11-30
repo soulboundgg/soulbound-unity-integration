@@ -86,7 +86,7 @@ To integrate with Soulbound API, you will need the following:
 
 ```
 GET /events HTTP/1.1
-Authorization: Bearer e9e716a4-9b54-4e88-a992-0491aa7a5e6b
+Authorization: Bearer your_token_here
 Content-Length: 271
 Content-Type: application/json
 Host: sdkdata.soulbound.gg
