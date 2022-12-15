@@ -15,35 +15,28 @@ public class Program : MonoBehaviour
 
 
         // Please ensure you create a game in your Soulbound account dashboard and get its TOKEN.
-        
         SoulBound.Client soulClient = SoulBound.Client.GetInstance("GAME_TOKEN", configBuilder.Build());
 
-
         Traits traits = new Traits();
-        traits.PutWalletAddress("n4GC2FbfWPMR49zHzi6xzLCYTTfdCTzRLS");
-        traits.PutPseudonym("haxor1");
-        traits.Put("gender", "Male");
+        traits.PutWalletAddress("add_wallet_address");
+        traits.PutPseudonym("add_pseudonym");
+        traits.PutEmail("add_email");
         
-        soulClient.Identify("some_user_id", traits);
+        soulClient.Identify("traits", traits);
 
+        // Below section is example code to send events. It should be used where the event needs to be triggered. 
 
-        //send messages
-        Dictionary<string, object> eventProperties = new Dictionary<string, object>();
-        eventProperties.Add("quest_level", "3");
-        eventProperties.Add("quest_completed", "true");
+        //        Dictionary<string, object> userProperties = new Dictionary<string, object>();
+        //        userProperties.Add("userid", "add_wallet_address/other identifier");
+        //        Dictionary<string, object> eventProperties = new Dictionary<string, object>();
+        //        eventProperties.Add("name", "Floor");
+        //        eventProperties.Add("value", "3");
 
-        // create user properties
-        Dictionary<string, object> userProperties = new Dictionary<string, object>();
-        userProperties.Add("user_time_spent", "10");
-        userProperties.Add("trial_nos", "3");
+        //        MessageBuilder builder = new MessageBuilder();
+        //        builder.EventProperties(eventProperties);
+        //        builder.UserProperties(userProperties);
 
-        // create message to track
-        MessageBuilder builder = new MessageBuilder();
-        builder.EventName("test_event_name");
-        builder.EventProperties(eventProperties);
-        builder.UserProperties(userProperties);
-
-        soulClient.Track(builder.Build());
+        //        soulClient.Track(builder.Build());
     }
 }
 
