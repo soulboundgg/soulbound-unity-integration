@@ -14,7 +14,7 @@ namespace SoulBound
 
         public string getEventPropertiesJson()
         {
-            return convertToJson(eventProperties);
+            return convertListofDictToJson(eventProperties);
         }
 
         public string getUserPropertiesJson()

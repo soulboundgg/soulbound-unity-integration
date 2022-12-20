@@ -26,17 +26,17 @@ public class Program : MonoBehaviour
 
         // Below section is example code to send events. It should be used where the event needs to be triggered. 
 
-        //        Dictionary<string, object> userProperties = new Dictionary<string, object>();
-        //        userProperties.Add("userid", "add_wallet_address/other identifier");
-        //        Dictionary<string, object> eventProperties = new Dictionary<string, object>();
-        //        eventProperties.Add("name", "Floor");
-        //        eventProperties.Add("value", "3");
+        Dictionary<string, object> userProperties = new Dictionary<string, object>();
+        userProperties.Add("userid", "add_wallet_address/other identifier");
+        Dictionary<string, object> eventProperties = new Dictionary<string, object>();
+        eventProperties.Add("name", "Quest");
+        eventProperties.Add("value", "CarverCarl");
 
-        //        MessageBuilder builder = new MessageBuilder();
-        //        builder.EventProperties(eventProperties);
-        //        builder.UserProperties(userProperties);
+        MessageBuilder builder = new MessageBuilder();
+        builder.EventProperties(eventProperties);
+        builder.UserProperties(userProperties);
 
-        //        soulClient.Track(builder.Build());
+        soulClient.Track(builder.Build());
     }
 }
 
